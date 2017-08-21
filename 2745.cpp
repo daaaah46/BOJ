@@ -6,7 +6,7 @@ int main() {
 	string N;
 	long B, sum = 0;
 	cin >> N >> B;
-	for (int i = 0; i < N.length(); i++) {
+	for (int i = N.size()-1; i >= 0; i--) {
 		char ch = N.at(i);
 		int n;
 		if (ch >= '0' && ch <='9') {
@@ -15,7 +15,7 @@ int main() {
 		else {
 			n = (int)(ch - 'A') + 10;
 		}
-		sum = sum * B + n;
+		sum += pow(B, N.size()-i-1)*n;
 	}
 	cout << sum << endl;
 }
