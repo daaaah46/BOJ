@@ -22,11 +22,9 @@ using namespace std;
 int main(){
     int n;
     scanf("%d", &n);
-    vector<int> a;
+    vector<int> a(n);
     for (int i = 0; i < n; i++){
-        int t;
-        scanf("%d", &t);
-        a.push_back(t);
+        scanf("%d", &a[i]);
     }
     sort(a.begin(),a.end());
     for (int i = 0; i < n; i++){
