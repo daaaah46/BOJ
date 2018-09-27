@@ -23,6 +23,6 @@ int main(){
     stable_sort(a.begin(),a.end(), cmp);
     
     for(int i = 0; i < n; i++){
-        cout << a[i].age << ' ' << a[i].name << endl;
+        cout << a[i].age << ' ' << a[i].name << '\n';
     }
 }
