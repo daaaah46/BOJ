@@ -1,23 +1,23 @@
 #include <iostream>
-#include <string>
-#include <set>
+#include <map>
+#include <algorithm>
 using namespace std;
-int main() {
-	set<string> s;
-	set<string>::reverse_iterator it;
-	string str, name;
-	int n;
-	cin >> n;
-	for (int i = 0; i < n; i++) {
-		cin >> name >> str;
-		if (str == "enter") { //enter인 경우
-			s.insert(name);
-		}
-		else {	//leave인 경우
-			s.erase(name);
-		}
-	}
-	for (it = s.rbegin(); it !=s.rend(); it++)	{
-		cout << *it << endl;
-	}
+string name, condition;
+int main(){
+    int n;
+    cin >> n;
+    map<string, int, greater<string>> m;
+    for(int i = 0; i < n; i++){
+        cin >> name >> condition;
+        if(condition[0] == 'e'){
+            m[name] = 1;
+        } else {
+            m[name] = 0;
+        }
+    }
+
+    map<string, int>::iterator iter;
+    for (iter = m.begin(); iter != m.end(); ++iter)
+        if((*iter).second == 1)
+            cout << (*iter).first << '\n'; // endl로 하면 시간초과 난다....
 }
