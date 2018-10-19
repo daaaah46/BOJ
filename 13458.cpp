@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-long long m[1000001];
+long long m[1000002];
 int main(){
     long long N, B, C;
     cin >> N;
@@ -13,10 +13,14 @@ int main(){
     cin >> B >> C;
     long long ans = 0;
     for(int i = 0; i < N; i++){
-        m[i] -= B;
-        ans++;
-        if(m[i] > 0) ans += m[i] / C;
-        if(m[i] % C > 0) ans++;
+        if(m[i] - B <= 0){ // ..조건식은 늘 조심할 
+            ans++;
+        }else{
+            m[i] -= B;
+            ans++;
+            ans += m[i] / C;
+            if(m[i] % C > 0) ans++;
+        }
     }
     cout << ans << endl;
 }
